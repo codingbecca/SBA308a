@@ -24,6 +24,7 @@ userSelect.addEventListener('change', handleSelectUser);
 
 async function handleSelectUser(e) {
     const userId = e.target.value;
+    Cart.clear();
 
     const response = await axios(`https://fakestoreapi.com/carts/user/${userId}`)
     const carts = response.data;

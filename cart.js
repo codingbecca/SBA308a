@@ -1,6 +1,5 @@
 import { priceFormat } from "./helperFunctions.js";
 
-const cartTotalEl = document.getElementById('cartTotal');
 const cartsContainer = document.getElementById('cartsContainer');
 
 export async function getCartTotal(products){
@@ -29,4 +28,11 @@ export function createCart(cartId){
 
     cartsContainer.appendChild(clone);
 
+}
+
+export function clear() {
+    const carts = document.getElementById('cartsContainer');
+    while (carts.firstChild){
+        carts.removeChild(carts.firstChild);
+    }
 }
