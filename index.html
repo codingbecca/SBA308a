@@ -25,98 +25,75 @@
 
     <!-- Script tags -->
     <script type="module" src="./cartItem.js"></script>
+    <script type="module" src="./cart.js"></script>
     <script type="module" src="./index.js"></script>
 
-    <title>Document</title>
+    <title>SBA308a</title>
   </head>
   <body>
     <!-- User Select -->
     <div class="text-center my-4">
-      <p>
-        Select user to view carts: 
-      </p>
-      <select id="userSelect"
-        style="width: 125px;"
+      <p>Select user to view carts:</p>
+      <select
+        id="userSelect"
+        style="width: 125px"
         class="form-select form-select-lg my-1 mx-auto"
-      >
-      </select>
+      ></select>
     </div>
 
-    <!-- Cart -->
-    <div id="cart">
-      <div class="card mb-4">
-        <div class="card-body p-4">
-          <div class="row align-items-center">
-            <div class="col-md-2"></div>
-            <div class="col-md-2 d-flex justify-content-center">
-              <div>
-                <p class="lead fw-normal mb-0 text-muted">Name</p>
-              </div>
-            </div>
-            <div class="col-md-2 d-flex justify-content-center">
-              <div>
-                <p class="lead fw-normal mb-0 text-muted">Quantity</p>
-              </div>
-            </div>
-            <div class="col-md-2 d-flex justify-content-center">
-              <div>
-                <p class="lead fw-normal mb-0 text-muted">Price</p>
-              </div>
-            </div>
-            <div class="col-md-2 d-flex justify-content-center">
-              <div>
-                <p class="lead fw-normal mb-0 text-muted">Total</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card mb-4">
-        <div class="card-body p-4">
-          <div class="row align-items-center">
-            <div class="col-md-2">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/1.webp"
-                class="img-fluid"
-                alt="Generic placeholder image"
-              />
-            </div>
-            <div class="col-md-2 d-flex justify-content-center">
-              <div>
-                <p class="lead fw-normal mb-0">iPad Air</p>
-              </div>
-            </div>
-            <div class="col-md-2 d-flex justify-content-center">
-              <div>
-                <p class="lead fw-normal mb-0">1</p>
-              </div>
-            </div>
-            <div class="col-md-2 d-flex justify-content-center">
-              <div>
-                <p class="lead fw-normal mb-0">$799</p>
-              </div>
-            </div>
-            <div class="col-md-2 d-flex justify-content-center">
-              <div>
-                <p class="lead fw-normal mb-0">$799</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card mb-5" id="cartTotalCard">
-      <div class="card-body p-4">
-        <div class="float-end">
-          <p class="mb-0 me-5 d-flex align-items-center">
-            <span class="small text-muted me-2">Order total:</span>
-            <span class="lead fw-normal" id="cartTotal"></span>
-          </p>
-        </div>
-      </div>
-    </div>
+    <!-- Carts Section -->
+     <div id="cartsContainer">
+     </div>
     
+    <!-- Template for Carts -->
+    <template id="cartTemplate">
+        <div class="cart m-5 border rounded p-1">
+            <!-- Cart header -->
+          <div class="cartHeader">
+            <div class="card mb-4">
+              <div class="card-body p-4">
+                <div class="row align-items-center">
+                  <div class="col-md-2"></div>
+                  <div class="col-md-2 d-flex justify-content-center">
+                    <div>
+                      <p class="lead fw-normal mb-0 text-muted">Name</p>
+                    </div>
+                  </div>
+                  <div class="col-md-2 d-flex justify-content-center">
+                    <div>
+                      <p class="lead fw-normal mb-0 text-muted">Quantity</p>
+                    </div>
+                  </div>
+                  <div class="col-md-2 d-flex justify-content-center">
+                    <div>
+                      <p class="lead fw-normal mb-0 text-muted">Price</p>
+                    </div>
+                  </div>
+                  <div class="col-md-2 d-flex justify-content-center">
+                    <div>
+                      <p class="lead fw-normal mb-0 text-muted">Total</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cartBody">
+          </div>
+          <!-- Cart total card -- cart total section -->
+          <div class="card mb-5 cartTotalCard">
+            <div class="card-body p-4">
+              <div class="float-end">
+                <p class="mb-0 me-5 d-flex align-items-center">
+                  <span class="small text-muted me-2">Order total:</span>
+                  <span class="lead fw-normal cartTotal"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+     </template>
+
     <!-- Template for Cart items -->
     <template id="cartItemTemplate">
       <div class="card mb-4">

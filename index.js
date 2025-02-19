@@ -3,12 +3,6 @@ import * as Cart from "./cart.js";
 
 const userSelect = document.getElementById('userSelect');
 
-const response = await axios('https://fakestoreapi.com/products/1')
-console.log(response.data)
-
-const newCartItem = CartItem.createCartItem(response.data, 2)
-CartItem.appendCartItem(newCartItem)
-
 let usersWCarts = [];
 
 (async function loadAvailableUsers() {
@@ -22,6 +16,7 @@ let usersWCarts = [];
         option.textContent = `User ${user}`;
         userSelect.appendChild(option)
     })
+    handleSelectUser({target: {value: 1}})
 })();
 
 
@@ -30,5 +25,22 @@ userSelect.addEventListener('change', handleSelectUser);
 async function handleSelectUser(e) {
     const userId = e.target.value;
 
-    
+    const response = await axios(`https://fakestoreapi.com/carts/user/${userId}`)
+    const carts = response.data;
+
+    for (const cart of carts) {
+        Cart.createCart(cart.id)
+        const cartBodyEl = document.querySelector(`#cart${cart.id} .cartBody`);
+        const cartTotalEl = document.querySelector(`#cart${cart.id} .cartTotal`);
+        const cartTotal =  await Cart.getCartTotal(cart.products);
+        Cart.displayCartTotal(cartTotal, cartTotalEl);
+
+        for (const product of cart.products){
+            const productRaw = await axios(`https://fakestoreapi.com/products/${product.productId}`);
+            const productInfo = productRaw.data;
+            const cartItem = CartItem.createCartItem(productInfo, product.quantity);
+            cartBodyEl.appendChild(cartItem);
+        }
+
+    }
 }

@@ -1,6 +1,7 @@
 import { priceFormat } from "./helperFunctions.js";
 
 const cartTotalEl = document.getElementById('cartTotal');
+const cartsContainer = document.getElementById('cartsContainer');
 
 export async function getCartTotal(products){
     let cartTotal = 0;
@@ -14,8 +15,18 @@ export async function getCartTotal(products){
     return cartTotal;
 }
 
-export function displayCartTotal(cartTotal){
+export function displayCartTotal(cartTotal, element){
     const cartTotalFormatted = priceFormat.format(cartTotal);
 
-    cartTotalEl.textContent = cartTotalFormatted;
+    element.textContent = cartTotalFormatted;
+}
+
+export function createCart(cartId){
+    const template = document.getElementById('cartTemplate')
+    const clone = template.content.cloneNode(true);
+    const cartWrapper = clone.querySelector('.cart')
+    cartWrapper.setAttribute('id', `cart${cartId}`)
+
+    cartsContainer.appendChild(clone);
+
 }

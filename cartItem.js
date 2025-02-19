@@ -24,8 +24,3 @@ export function createCartItem(product, qty) {
 
     return clone;
 }
-
-export function appendCartItem(element){
-    const cart = document.getElementById('cart')
-    cart.appendChild(element)
-}
