@@ -24,7 +24,7 @@ userSelect.addEventListener('change', handleSelectUser);
 
 async function handleSelectUser(e) {
     const userId = e.target.value;
-    Cart.clear();
+    Cart.clearCarts();
 
     const response = await axios(`https://fakestoreapi.com/carts/user/${userId}`)
     const carts = response.data;
@@ -36,6 +36,9 @@ async function handleSelectUser(e) {
         const cartTotal =  await Cart.getCartTotal(cart.products);
         Cart.displayCartTotal(cartTotal, cartTotalEl);
 
+        const deleteCartBtn = document.querySelector(`#cart${cart.id} .deleteBtn`);
+        deleteCartBtn.addEventListener('click', handleDeleteCart);
+
         for (const product of cart.products){
             const productRaw = await axios(`https://fakestoreapi.com/products/${product.productId}`);
             const productInfo = productRaw.data;
@@ -43,5 +46,12 @@ async function handleSelectUser(e) {
             cartBodyEl.appendChild(cartItem);
         }
 
+    }
+}
+
+async function handleDeleteCart(e){
+    const response = await axios.delete(`https://fakestoreapi.com/carts/${e.target.id}`);
+    if (response.data) {
+        Cart.deleteSingleCart(e.target.id)
     }
 }

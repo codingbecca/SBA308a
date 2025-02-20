@@ -21,18 +21,25 @@ export function displayCartTotal(cartTotal, element){
 }
 
 export function createCart(cartId){
-    const template = document.getElementById('cartTemplate')
+    const template = document.getElementById('cartTemplate');
     const clone = template.content.cloneNode(true);
-    const cartWrapper = clone.querySelector('.cart')
-    cartWrapper.setAttribute('id', `cart${cartId}`)
+    const cartWrapper = clone.querySelector('.cart');
+    cartWrapper.setAttribute('id', `cart${cartId}`);
+    const deleteBtn = clone.querySelector('.deleteBtn');
+    deleteBtn.firstChild.setAttribute('id', cartId);
 
     cartsContainer.appendChild(clone);
 
 }
 
-export function clear() {
+export function clearCarts() {
     const carts = document.getElementById('cartsContainer');
     while (carts.firstChild){
         carts.removeChild(carts.firstChild);
     }
+}
+
+export function deleteSingleCart(id) {
+    const cart = document.getElementById(`cart${id}`);
+    cart.remove();
 }

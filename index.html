@@ -20,6 +20,9 @@
     <!-- Axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/fcf6a7c7c7.js" crossorigin="anonymous"></script>
+
     <!-- Style CSS -->
     <link rel="stylesheet" href="./styles.css" />
 
@@ -47,7 +50,7 @@
     
     <!-- Template for Carts -->
     <template id="cartTemplate">
-        <div class="cart m-5 border rounded p-1">
+        <div class="cart m-5 border border-dark rounded p-3">
             <!-- Cart header -->
           <div class="cartHeader">
             <div class="card mb-4">
@@ -90,6 +93,9 @@
                 </p>
               </div>
             </div>
+          </div>
+          <div class="d-flex justify-content-end">
+            <button class="btn btn-outline-dark deleteBtn"><i class="fa-solid fa-trash fa-2xl py-3"></i></button>
           </div>
         </div>
      </template>
