@@ -21,7 +21,10 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <!-- FontAwesome -->
-    <script src="https://kit.fontawesome.com/fcf6a7c7c7.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/fcf6a7c7c7.js"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="./styles.css" />
@@ -45,60 +48,60 @@
     </div>
 
     <!-- Carts Section -->
-     <div id="cartsContainer">
-     </div>
-    
+    <div id="cartsContainer"></div>
+
     <!-- Template for Carts -->
     <template id="cartTemplate">
-        <div class="cart m-5 border border-dark rounded p-3">
-            <!-- Cart header -->
-          <div class="cartHeader">
-            <div class="card mb-4">
-              <div class="card-body p-4">
-                <div class="row align-items-center">
-                  <div class="col-md-2"></div>
-                  <div class="col-md-2 d-flex justify-content-center">
-                    <div>
-                      <p class="lead fw-normal mb-0 text-muted">Name</p>
-                    </div>
+      <div class="cart m-5 border border-dark rounded p-3">
+        <!-- Cart header -->
+        <div class="cartHeader">
+          <div class="card mb-4">
+            <div class="card-body p-4">
+              <div class="row align-items-center">
+                <div class="col-md-2"></div>
+                <div class="col-md-2 d-flex justify-content-center">
+                  <div>
+                    <p class="lead fw-normal mb-0 text-muted">Name</p>
                   </div>
-                  <div class="col-md-2 d-flex justify-content-center">
-                    <div>
-                      <p class="lead fw-normal mb-0 text-muted">Quantity</p>
-                    </div>
+                </div>
+                <div class="col-md-2 d-flex justify-content-center">
+                  <div>
+                    <p class="lead fw-normal mb-0 text-muted">Quantity</p>
                   </div>
-                  <div class="col-md-2 d-flex justify-content-center">
-                    <div>
-                      <p class="lead fw-normal mb-0 text-muted">Price</p>
-                    </div>
+                </div>
+                <div class="col-md-2 d-flex justify-content-center">
+                  <div>
+                    <p class="lead fw-normal mb-0 text-muted">Price</p>
                   </div>
-                  <div class="col-md-2 d-flex justify-content-center">
-                    <div>
-                      <p class="lead fw-normal mb-0 text-muted">Total</p>
-                    </div>
+                </div>
+                <div class="col-md-2 d-flex justify-content-center">
+                  <div>
+                    <p class="lead fw-normal mb-0 text-muted">Total</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="cartBody">
-          </div>
-          <!-- Cart total card -- cart total section -->
-          <div class="card mb-5 cartTotalCard">
-            <div class="card-body p-4">
-              <div class="float-end">
-                <p class="mb-0 me-5 d-flex align-items-center">
-                  <span class="small text-muted me-2">Order total:</span>
-                  <span class="lead fw-normal cartTotal"></span>
-                </p>
-              </div>
+        </div>
+        <div class="cartBody"></div>
+        <!-- Cart total card -- cart total section -->
+        <div class="card mb-5 cartTotalCard">
+          <div class="card-body p-4">
+            <div class="float-end">
+              <p class="mb-0 me-5 d-flex align-items-center">
+                <span class="small text-muted me-2">Order total:</span>
+                <span class="lead fw-normal cartTotal"></span>
+              </p>
             </div>
           </div>
-          <div class="d-flex justify-content-end">
-            <button class="btn btn-outline-dark deleteBtn"><i class="fa-solid fa-trash fa-2xl py-3"></i></button>
-          </div>
         </div>
-     </template>
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-outline-dark deleteBtn">
+            <i class="fa-solid fa-trash fa-2xl py-3"></i>
+          </button>
+        </div>
+      </div>
+    </template>
 
     <!-- Template for Cart items -->
     <template id="cartItemTemplate">
@@ -114,22 +117,22 @@
             </div>
             <div class="col-md-2 d-flex justify-content-center">
               <div>
-                <p class="lead fw-normal mb-0" id="name">Name</p>
+                <p class="lead fw-normal mb-0 name">Name</p>
               </div>
             </div>
             <div class="col-md-2 d-flex justify-content-center">
               <div>
-                <p class="lead fw-normal mb-0" id="quantity">Quantity</p>
+                <p class="lead fw-normal mb-0 quantity">Quantity</p>
               </div>
             </div>
             <div class="col-md-2 d-flex justify-content-center">
               <div>
-                <p class="lead fw-normal mb-0" id="price">Price</p>
+                <p class="lead fw-normal mb-0 price">Price</p>
               </div>
             </div>
             <div class="col-md-2 d-flex justify-content-center">
               <div>
-                <p class="lead fw-normal mb-0" id="total">Total</p>
+                <p class="lead fw-normal mb-0 total">Total</p>
               </div>
             </div>
           </div>
